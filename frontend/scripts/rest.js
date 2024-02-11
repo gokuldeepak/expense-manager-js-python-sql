@@ -1,7 +1,7 @@
 // Add an expense
 
 function add_expense(uid, expenseid, amount, description){
-	var url = "http://localhost:5000/addexpense";
+	var url = "http://192.168.0.70:5000/addexpense";
 
 	var data = {};
 	data.user_id = uid;
@@ -51,7 +51,7 @@ function view_expense(){
 // Update an expense
 function update_expense(uid, expenseid, amount, description){
 
-	var url = "http://localhost:5000/updateexpense";
+	var url = "http://192.168.0.70:5000/updateexpense";
 
 	var data = {};
 	data.id = uid;
@@ -78,7 +78,7 @@ function update_expense(uid, expenseid, amount, description){
 // deleting expense
 function deleteExpense(id){
 
-	var url = "http://localhost:5000/deleteexpense";
+	var url = "http://192.168.0.70:5000/deleteexpense";
 	var xhr = new XMLHttpRequest();
 	xhr.open("DELETE", url+id, true);
 	xhr.onload = function () {
@@ -105,7 +105,7 @@ function deleteExpense(id){
 /**
  * 
  * Post request to add a user
-var yourUrl = "http://localhost:5000/add";
+var yourUrl = "http://192.168.0.70:5000/add";
 var xhr = new XMLHttpRequest();
 xhr.open("POST", yourUrl, true);
 xhr.setRequestHeader('Content-Type', 'application/json');
@@ -156,7 +156,7 @@ xhr.send(JSON.stringify({
 
 
  // Delete a user
-// var url = "http://localhost:5000/delete";
+// var url = "http://192.168.0.70:5000/delete";
 // var xhr = new XMLHttpRequest();
 // xhr.open("DELETE", url+'/3', true);
 // xhr.onload = function () {
@@ -178,7 +178,7 @@ xhr.send(JSON.stringify({
  */
 
 // 
-// var url = "http://localhost:5000/update";
+// var url = "http://192.168.0.70:5000/update";
 
 // var data = {
 //    "id":3,
