@@ -22,9 +22,11 @@ Expenses
 @app.route('/', methods = ['GET', 'POST'])
 def home():
     if(request.method == 'GET'):
-
         data = "Welcome to Expense Manager"
+        cursor = mysql.get_db().cursor()
+        query = "CREATE TABLE expenses (user_id  VARCHAR(40), expense_id VARCHAR(40), expense_amount INT, expense_description VARCHAR(40))"
         return jsonify({'data': data})
+    
 
 @app.route('/addexpense', methods=['POST'])
 def add_expense():
