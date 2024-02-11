@@ -6,7 +6,7 @@ Wanted to build in public as Opensource. Any contributions for Security and good
 
 Installed Ubuntu 22.04
 
-Not as a root user but with sudo privelege 
+Not as a root user but with sudo privilege 
 I'm not using venv as I'm using a Virtual VM only for this project
 
 sudo apt update
