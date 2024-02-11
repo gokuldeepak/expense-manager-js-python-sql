@@ -40,6 +40,7 @@ exit
 Install Dependencies:
 
 pip3 install pymysql
+pip install mysql-connector
 python -m pip install mysql-connector-python
 pip install Flask-Cors
 

@@ -2,7 +2,7 @@ import pymysql
 from flask import Flask
 from flask import jsonify
 from flask import request
-import mysql.connector
+import mysql.connector as mysql
 from flask_cors import CORS, cross_origin
 
 
@@ -22,10 +22,14 @@ Expenses
 @app.route('/', methods = ['GET', 'POST'])
 def home():
     if(request.method == 'GET'):
-        data = "Welcome to Expense Manager"
-        cursor = mysql.get_db().cursor()
+        data = "Welcome to Expense Manager. Table Created"
+        conn = mysql.connector.connect(user = "root",
+											password = "root",
+											database = "expensemanager"
+        cursor = conn.cursor()
         query = "CREATE TABLE expenses (user_id  VARCHAR(40), expense_id VARCHAR(40), expense_amount INT, expense_description VARCHAR(40))"
-        cursor.execute(query)
+        cursor.execute(sql, data)
+        conn.commit()
         return jsonify({'data': data})
     
 
