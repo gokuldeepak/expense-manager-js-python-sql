@@ -19,6 +19,13 @@ app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 '''
 Expenses
 '''
+@app.route('/', methods = ['GET', 'POST'])
+def home():
+    if(request.method == 'GET'):
+
+        data = "Welcome to Expense Manager"
+        return jsonify({'data': data})
+
 @app.route('/addexpense', methods=['POST'])
 def add_expense():
     conn = None
