@@ -33,6 +33,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
 CREATE USER 'gokul'@'localhost' IDENTIFIED BY 'gokul';
 GRANT ALL PRIVILEGES ON *.* TO 'gokul'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+CREATE DATABASE expenses;
 exit
 
 
