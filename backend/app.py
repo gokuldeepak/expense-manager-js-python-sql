@@ -10,9 +10,9 @@ app = Flask(__name__)
 CORS(app)
 
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_DB'] = 'clgpractical'
+app.config['MYSQL_DATABASE_USER'] = 'gokul'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'gokul'
+app.config['MYSQL_DATABASE_DB'] = 'expensemanager'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 
 
@@ -42,9 +42,9 @@ def add_expense():
 			# save edits
             sql = "INSERT INTO expenses(user_id, expense_id, expense_amount, expense_description) VALUES(%s, %s, %s, %s)"
             data = (_user_id, _expense_id, _expense_amount, _expense_description)
-            conn = mysql.connector.connect(user = "root",
-											password = "root",
-											database = "clgpractical")
+            conn = mysql.connector.connect(user = "gokul",
+											password = "gokul",
+											database = "expensemanager")
             cursor = conn.cursor()
             cursor.execute(sql, data)
             conn.commit()
@@ -63,9 +63,9 @@ def add_expense():
 def expenses():
 	
 	try:
-		conn = mysql.connector.connect(user = "root",
-		password = "root",
-		database = "clgpractical")
+		conn = mysql.connector.connect(user = "gokul",
+		password = "gokul",
+		database = "expensemanager")
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
 		cursor.execute("SELECT * FROM expenses")
 		rows = cursor.fetchall()
@@ -74,6 +74,7 @@ def expenses():
 		return resp
 	except Exception as e:
 		print("1",e)
+		return e
 		
 	
 		
@@ -82,9 +83,9 @@ def expense(id):
 	conn = None
 	cursor = None
 	try:
-		conn = mysql.connector.connect(user = "root",
-		password = "root",
-		database = "clgpractical")
+		conn = mysql.connector.connect(user = "gokul",
+		password = "gokul",
+		database = "expensemanager")
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
 		cursor.execute("SELECT * FROM expenses WHERE expense_id = %s", (id,))
 		row = cursor.fetchone()
@@ -113,9 +114,9 @@ def update_expense():
 			# save edits
 			sql = "UPDATE expenses SET user_id=%s, expense_description=%s , expense_amount=%s WHERE expense_id=%s"
 			data = (_id, _expense_desc, _expense_amt,  _expense_id,)
-			conn = mysql.connector.connect(user = "root",
-		password = "root",
-		database = "clgpractical")
+			conn = mysql.connector.connect(user = "gokul",
+		password = "gokul",
+		database = "expensemanager")
 			cursor = conn.cursor()
 			cursor.execute(sql, data)
 			conn.commit()
@@ -136,9 +137,9 @@ def delete_expense(id):
 	conn = None
 	cursor = None
 	try:
-		conn = mysql.connector.connect(user = "root",
-		password = "root",
-		database = "clgpractical")
+		conn = mysql.connector.connect(user = "gokul",
+		password = "gokul",
+		database = "expensemanager")
 		cursor = conn.cursor()
 		cursor.execute("DELETE FROM expenses WHERE expense_id=%s", (id,))
 		conn.commit()

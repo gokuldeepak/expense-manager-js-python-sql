@@ -23,5 +23,26 @@ python3 -m flask --version
  Flask 3.0.2
  Werkzeug 3.0.1
 
+sudo apt install mysql-server
+sudo systemctl start mysql.service
+sudo mysql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
+exit
+mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED WITH auth_socket;
+CREATE USER 'gokul'@'localhost' IDENTIFIED BY 'gokul';
+GRANT ALL PRIVILEGES ON *.* TO 'gokul'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+exit
+
+
+Install Dependencies:
+
+pip3 install pymysql
+python -m pip install mysql-connector-python
+pip install Flask-Cors
+
+
+Run flask:
 export FLASK_APP=app.py
 python3 -m flask run --host=0.0.0.0
