@@ -21,7 +21,7 @@ function retrieve(){
     console.log("called")
     allExpenses =[]
     var users;
-    var url  = "http://127.0.0.1:5000/expenses";
+    var url  = "http://192.168.0.70:5000/expenses";
     var xhr  = new XMLHttpRequest()
     xhr.open('GET', url, true)
     xhr.onload = function () {
@@ -131,7 +131,7 @@ function addExpense(){
     clearErrorMessages();
 
     // Db adding
-    var url = "http://localhost:5000/addexpense";
+    var url = "http://192.168.0.70:5000/addexpense";
 
     var data = {};
     data.user_id = 11;
@@ -213,7 +213,7 @@ function updateItem(id){
 function updateExpense(){
     console.log("updating expense")
 
-    var url = "http://localhost:5000/updateexpense";
+    var url = "http://192.168.0.70:5000/updateexpense";
 
     var data = {};
     data.id = 11;
@@ -262,7 +262,7 @@ function deleteItem(id){
 
 
     //deleting from db
-    var url = "http://localhost:5000/deleteexpense";
+    var url = "http://192.168.0.70:5000/deleteexpense";
     var xhr = new XMLHttpRequest();
     xhr.open("DELETE", url+'/'+id, true);
     xhr.onload = function () {
