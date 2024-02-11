@@ -51,7 +51,7 @@ def add_expense():
             data = (_user_id, _expense_id, _expense_amount, _expense_description)
             conn = mysql.connector.connect(user = "root",
 											password = "root",
-											database = "expensemanager")
+											database = "expensemanager", auth_plugin='mysql_native_password')
             cursor = conn.cursor()
             cursor.execute(sql, data)
             conn.commit()
@@ -72,7 +72,7 @@ def expenses():
 	try:
 		conn = mysql.connector.connect(user = "root",
 		password = "root",
-		database = "expensemanager")
+		database = "expensemanager", auth_plugin='mysql_native_password')
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
 		cursor.execute("SELECT * FROM expenses")
 		rows = cursor.fetchall()
@@ -92,7 +92,7 @@ def expense(id):
 	try:
 		conn = mysql.connector.connect(user = "root",
 		password = "root",
-		database = "expensemanager")
+		database = "expensemanager", auth_plugin='mysql_native_password')
 		cursor = conn.cursor(pymysql.cursors.DictCursor)
 		cursor.execute("SELECT * FROM expenses WHERE expense_id = %s", (id,))
 		row = cursor.fetchone()
@@ -123,7 +123,7 @@ def update_expense():
 			data = (_id, _expense_desc, _expense_amt,  _expense_id,)
 			conn = mysql.connector.connect(user = "root",
 		password = "root",
-		database = "expensemanager")
+		database = "expensemanager", auth_plugin='mysql_native_password')
 			cursor = conn.cursor()
 			cursor.execute(sql, data)
 			conn.commit()
@@ -146,7 +146,7 @@ def delete_expense(id):
 	try:
 		conn = mysql.connector.connect(user = "root",
 		password = "root",
-		database = "expensemanager")
+		database = "expensemanager", auth_plugin='mysql_native_password')
 		cursor = conn.cursor()
 		cursor.execute("DELETE FROM expenses WHERE expense_id=%s", (id,))
 		conn.commit()
